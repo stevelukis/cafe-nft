@@ -28,7 +28,7 @@ export const buyNFT = async () => {
         from: ethereum.selectedAddress,
         value: web3.utils.toHex(web3.utils.toWei('0.05', 'ether')),
         gasLimit: web3.utils.toHex(3000000),
-        gasPrice: web3.utils.toHex(web3.utils.toWei('100', 'gwei')),
+        gasPrice: web3.utils.toHex(web3.utils.toWei('30', 'gwei')),
         data: contract.methods.mint(1).encodeABI()
     };
     const txHash: string = await ethereum.request({

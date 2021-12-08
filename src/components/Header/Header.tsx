@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { getBalance } from "../../network/ethereum";
-
+import { useWallet } from "../hooks/useWallet";
 
 const Header: React.FC = () => {
     const { ethereum } = window;
+    const { currentAccount, setCurrentAccount, balance, setBalance } = useWallet();
 
-    const [currentAccount, setCurrentAccount] = useState<string | null>(ethereum.selectedAddress);
-    const [balance, setBalance] = useState('0');
-    
     const connectWallet = async () => {
         if (!ethereum) {
             console.log("No wallet plugin is available!");
@@ -23,23 +21,6 @@ const Header: React.FC = () => {
             console.log(err);
         }
     }
-
-    useEffect(() => {
-        if (currentAccount) {
-            const fetchBalance = async () => {
-                const balance = await getBalance(currentAccount!!);
-                setBalance(balance);
-            }
-
-            fetchBalance();
-        }
-    }, [currentAccount])
-
-    // @ts-ignore
-    ethereum.on("accountsChanged", ([newAccount]) => {
-        console.log("accountsChanged: ", newAccount);
-        setCurrentAccount(newAccount);
-    })
 
     return (
         <Navbar bg="light">
