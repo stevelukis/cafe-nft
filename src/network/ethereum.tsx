@@ -31,10 +31,8 @@ export const buyNFT = async () => {
         gasPrice: web3.utils.toHex(web3.utils.toWei('30', 'gwei')),
         data: contract.methods.mint(1).encodeABI()
     };
-    const txHash: string = await ethereum.request({
+    return await ethereum.request({
         method: 'eth_sendTransaction',
         params: [transactionParams]
     })
-    console.log(txHash);
-    return txHash;
 }
