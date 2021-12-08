@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { getBalance } from "../../network/ethereum";
+import { getBalance, getTotalSupply } from "../../network/ethereum";
 
 
 const Header: React.FC = () => {
@@ -26,8 +26,6 @@ const Header: React.FC = () => {
 
     useEffect(() => {
         if (currentAccount) {
-            console.log(currentAccount);
-
             const fetchBalance = async () => {
                 const balance = await getBalance(currentAccount!!);
                 setBalance(balance);
