@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, Alert } from "react-bootstrap";
+import { Container, Row, Col, Button, Alert, Image } from "react-bootstrap";
 import Header from "./Header/Header";
 import { buyNFT, getMaxSupply, getTotalSupply } from "../network/ethereum";
 import { useWallet } from "./hooks/useWallet";
+
+// Images
+import Logo from '../images/Logo.jpg';
 
 const Home: React.FC = () => {
     const { currentAccount, setCurrentAccount } = useWallet();
     const [totalSupply, setTotalSupply] = useState<number | null>(null);
     const [maxSupply, setMaxSupply] = useState<number | null>(null);
+    const [tokenLeft, setTokenLeft] = useState<number | null>(null);
     const [error, setError] = useState(false);
 
     useEffect(() => {
         const fetchSupply = async () => {
-            setTotalSupply(await getTotalSupply());
-            setMaxSupply(await getMaxSupply());
+            const ts = await getTotalSupply();
+            const ms = await getMaxSupply();
+            setTotalSupply(ts);
+            setMaxSupply(ms);
+            setTokenLeft(ms - ts);
         }
         fetchSupply();
     }, []);
@@ -34,30 +41,40 @@ const Home: React.FC = () => {
     return (
         <div>
             <Header />
-            <Container className="mt-3">
-                <Row>
-                    <Col className="d-flex justify-content-md-center">
-                        {totalSupply && maxSupply &&
-                        <h1>{maxSupply - totalSupply}/{maxSupply} available!</h1>
-                        }
+            <Container className="mt-5">
+                <Row className="align-items-center">
+                    <Col lg={6}>
+                        <Image
+                            src={Logo}
+                            width={512}
+                        />
                     </Col>
-                </Row>
-                <Row>
-                    <Col className="d-flex justify-content-md-center"
-                         lg={12}>
-                        <Button variant='primary'
-                                onClick={onBuyClick}>
-                            Buy now!
-                        </Button>
+                    <Col lg={6}>
+                        <Row>
+                            <Col className="d-flex justify-content-md-center">
+                                {tokenLeft &&
+                                <h1>{tokenLeft} token{tokenLeft > 1 && 's'} left!</h1>
+                                }
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="d-flex justify-content-md-center"
+                                 lg={12}>
+                                <Button variant='primary'
+                                        onClick={onBuyClick}>
+                                    Buy now!
+                                </Button>
+                            </Col>
+                            {error &&
+                            <Col className="mt-3 d-flex justify-content-md-center"
+                                 lg={12}>
+                                <Alert variant="danger">
+                                    Transaction failed!
+                                </Alert>
+                            </Col>
+                            }
+                        </Row>
                     </Col>
-                    {error &&
-                    <Col className="mt-3 d-flex justify-content-md-center"
-                         lg={12}>
-                        <Alert variant="danger">
-                            Transaction failed!
-                        </Alert>
-                    </Col>
-                    }
                 </Row>
             </Container>
         </div>
