@@ -20,3 +20,21 @@ export const getTotalSupply = async () => {
 export const getMaxSupply = async () => {
     return await contract.methods.maxSupply().call();
 }
+
+export const buyNFT = async () => {
+    const { ethereum } = window;
+    const transactionParams = {
+        to: contractAddress,
+        from: ethereum.selectedAddress,
+        value: web3.utils.toHex(web3.utils.toWei('0.05', 'ether')),
+        gasLimit: web3.utils.toHex(3000000),
+        gasPrice: web3.utils.toHex(web3.utils.toWei('100', 'gwei')),
+        data: contract.methods.mint(1).encodeABI()
+    };
+    const txHash: string = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParams]
+    })
+    console.log(txHash);
+    return txHash;
+}

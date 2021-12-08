@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Header from "./Header/Header";
-import { getMaxSupply, getTotalSupply } from "../network/ethereum";
+import { buyNFT, getMaxSupply, getTotalSupply } from "../network/ethereum";
 
 const Home: React.FC = () => {
     const [totalSupply, setTotalSupply] = useState<number | null>(null);
@@ -28,7 +28,10 @@ const Home: React.FC = () => {
                 </Row>
                 <Row>
                     <Col className="d-flex justify-content-md-center">
-                        <Button variant='primary'>Buy now!</Button>
+                        <Button variant='primary'
+                        onClick={() => buyNFT()}>
+                            Buy now!
+                        </Button>
                     </Col>
                 </Row>
             </Container>
