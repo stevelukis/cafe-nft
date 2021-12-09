@@ -11,9 +11,11 @@ const Collection: React.FC<Props> = ({ currentAccount }) => {
     return (
         <Container className="mt-5">
             <Row className="justify-content-center">
-                <Col lg={6} className="d-flex justify-content-center">
+                <Col lg={6}>
                     {!tokenList &&
-                    <Spinner animation="grow" variant="warning" />
+                    <Row className="justify-content-center">
+                        <Spinner animation="grow" variant="warning" />
+                    </Row>
                     }
 
                     {tokenList && tokenList.length === 0 &&
