@@ -8,9 +8,9 @@ import { style } from "./Home.styles";
 import Logo from '../../images/Logo.jpg';
 
 const Home: React.FC = () => {
-    const { currentAccount, setCurrentAccount } = useWallet();
-    const [totalSupply, setTotalSupply] = useState<number | null>(null);
-    const [maxSupply, setMaxSupply] = useState<number | null>(null);
+    const { currentAccount } = useWallet();
+    const [, setTotalSupply] = useState<number | null>(null);
+    const [, setMaxSupply] = useState<number | null>(null);
     const [tokenLeft, setTokenLeft] = useState<number | null>(null);
     const [error, setError] = useState(false);
 
