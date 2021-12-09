@@ -39,7 +39,7 @@ const Header: React.FC = () => {
                     }
                     {currentAccount &&
                     <Navbar.Text>
-                        Balance: {balance}eth
+                        Address: {currentAccount.slice(0, 5)}...{currentAccount.slice(currentAccount.length - 5)}
                     </Navbar.Text>
                     }
                 </Nav>
