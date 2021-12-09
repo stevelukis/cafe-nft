@@ -25,13 +25,18 @@ const Collection: React.FC<Props> = ({ currentAccount }) => {
 
                     {tokenList && tokenList.length > 0 &&
                     tokenMetadataList.map((tokenMetadata) => (
-                        <Row>
-                            <Image
-                                className="img-thumbnail"
-                                src={tokenMetadata.image}
-                                width="100px"
-                            />
-                        </Row>
+                        <div className="text-center">
+                            <Row>
+                                <Image
+                                    className="img-thumbnail"
+                                    src={tokenMetadata.image}
+                                    width="100px"
+                                />
+                            </Row>
+                            <Row>
+                                <h5>{tokenMetadata.name}</h5>
+                            </Row>
+                        </div>
                     ))
                     }
                 </Col>

@@ -38,7 +38,7 @@ export const useContract = (address?: string) => {
 
         if (address) {
             setLoading(true);
-            fetchTokenList(address!!)
+            fetchTokenList(address!!);
         }
     }, [address])
 
