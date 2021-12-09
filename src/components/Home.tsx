@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Alert, Image } from "react-bootstrap";
-import Header from "./Header/Header";
+import Index from "./Header";
 import { buyNFT, getMaxSupply, getTotalSupply } from "../network/ethereum";
 import { useWallet } from "./hooks/useWallet";
 
@@ -40,7 +40,6 @@ const Home: React.FC = () => {
 
     return (
         <div>
-            <Header />
             <Container className="mt-5">
                 <Row className="align-items-center">
                     <Col lg={6}>
