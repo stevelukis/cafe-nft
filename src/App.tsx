@@ -18,7 +18,7 @@ function App() {
                 setCurrentAccount={setCurrentAccount}
             />
             <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={<Home currentAccount={currentAccount} />} />
                 <Route
                     path='/my-token'
                     element={<Collection

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Col, Container, Image, Row } from "react-bootstrap";
 import { buyNFT, getMaxSupply, getTotalSupply } from "../../network/ethereum";
-import { useWallet } from "../hooks/useWallet";
 import { style } from "./Home.styles";
 
 // Images
 import Logo from '../../images/Logo.jpg';
 
-const Home: React.FC = () => {
-    const { currentAccount } = useWallet();
+type Props = {
+    currentAccount?: string;
+}
+
+const Home: React.FC<Props> = ({ currentAccount }) => {
     const [, setTotalSupply] = useState<number | null>(null);
     const [, setMaxSupply] = useState<number | null>(null);
     const [tokenLeft, setTokenLeft] = useState<number | null>(null);

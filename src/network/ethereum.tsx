@@ -27,7 +27,7 @@ export const buyNFT = async () => {
         to: contractAddress,
         from: ethereum.selectedAddress,
         value: web3.utils.toHex(web3.utils.toWei('0.05', 'ether')),
-        gasLimit: web3.utils.toHex(3000000),
+        gasLimit: web3.utils.toHex(30000),
         gasPrice: web3.utils.toHex(web3.utils.toWei('30', 'gwei')),
         data: contract.methods.mint(1).encodeABI()
     };
@@ -39,4 +39,8 @@ export const buyNFT = async () => {
 
 export const getToken = async (address: string) => {
     return await contract.methods.walletOfOwner(address).call();
+}
+
+export const getTokenUri = async (tokenId: number) => {
+    return await contract.methods.tokenURI(tokenId).call();
 }
