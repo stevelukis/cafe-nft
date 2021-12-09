@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Components
 import Home from "./components/Home/Home";
 import Header from "./components/Header";
+import Collection from "./components/Collection";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/my-token' element={<Collection />} />
             </Routes>
         </Router>
     );

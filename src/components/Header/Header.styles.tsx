@@ -1,11 +1,12 @@
 import React from 'react';
 
-export const style = (
+export const style =
     <>
-        <style type="text/css">
+        <style>
             {`
-                .nav-link {
-                    color: white;
+                a {
+                    color: black;
+                    text-decoration: none;
                 }
                 
                 .navbar {
@@ -23,4 +24,3 @@ export const style = (
             `}
         </style>
     </>
-)

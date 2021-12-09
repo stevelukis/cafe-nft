@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useWallet } from "../hooks/useWallet";
 import { style } from './Header.styles'
+import { Link } from "react-router-dom";
 
 
 const Header: React.FC = () => {
@@ -29,7 +30,11 @@ const Header: React.FC = () => {
             <Container>
                 <Navbar.Brand>Cafe NFT</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link>Your Token</Nav.Link>
+                    <Nav.Link>
+                        <Link to="/my-token">
+                            Your Token
+                        </Link>
+                    </Nav.Link>
                 </Nav>
                 <Nav>
                     {!currentAccount &&
