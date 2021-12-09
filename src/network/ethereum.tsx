@@ -36,3 +36,7 @@ export const buyNFT = async () => {
         params: [transactionParams]
     })
 }
+
+export const getToken = async (address: string) => {
+    return await contract.methods.walletOfOwner(address).call();
+}

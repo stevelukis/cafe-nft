@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { useWallet } from "../hooks/useWallet";
 import { style } from './Header.styles'
 import { Link } from "react-router-dom";
 
+type Props = {
+    currentAccount?: string,
+    setCurrentAccount: React.Dispatch<React.SetStateAction<string | undefined>>
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<Props> = ({ currentAccount, setCurrentAccount }) => {
     const { ethereum } = window;
-    const { currentAccount, setCurrentAccount } = useWallet();
 
     const connectWallet = async () => {
         if (!ethereum) {
@@ -16,8 +18,7 @@ const Header: React.FC = () => {
         }
 
         try {
-            let account;
-            [account] = await ethereum.request({ method: 'eth_requestAccounts' });
+            const [account] = await ethereum.request({ method: 'eth_requestAccounts' });
             setCurrentAccount(account);
         } catch (err) {
             console.log(err);
