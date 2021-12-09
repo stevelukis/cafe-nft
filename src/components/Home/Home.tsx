@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, Alert, Image } from "react-bootstrap";
-import Index from "./Header";
-import { buyNFT, getMaxSupply, getTotalSupply } from "../network/ethereum";
-import { useWallet } from "./hooks/useWallet";
+import { Alert, Button, Col, Container, Image, Row } from "react-bootstrap";
+import { buyNFT, getMaxSupply, getTotalSupply } from "../../network/ethereum";
+import { useWallet } from "../hooks/useWallet";
+import { style } from "./Home.styles";
 
 // Images
-import Logo from '../images/Logo.jpg';
+import Logo from '../../images/Logo.jpg';
 
 const Home: React.FC = () => {
     const { currentAccount, setCurrentAccount } = useWallet();
@@ -40,6 +40,7 @@ const Home: React.FC = () => {
 
     return (
         <div>
+            {style}
             <Container className="mt-5">
                 <Row className="align-items-center">
                     <Col lg={6}>
@@ -59,8 +60,10 @@ const Home: React.FC = () => {
                         <Row>
                             <Col className="d-flex justify-content-md-center"
                                  lg={12}>
-                                <Button variant='primary'
-                                        onClick={onBuyClick}>
+                                <Button
+                                    className="buy-button"
+                                    variant="flat"
+                                    onClick={onBuyClick}>
                                     Buy now!
                                 </Button>
                             </Col>

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useWallet } from "../hooks/useWallet";
+import { style } from './Header.styles'
 
 
 const Header: React.FC = () => {
@@ -23,16 +24,8 @@ const Header: React.FC = () => {
     }
 
     return (
-        <Navbar bg="light">
-            <>
-                <style type="text/css">
-                    {`
-                .nav-link {
-                    color: black;
-                }
-                `}
-                </style>
-            </>
+        <Navbar bg="#ff1">
+            {style}
             <Container>
                 <Navbar.Brand>Cafe NFT</Navbar.Brand>
                 <Nav className="me-auto">
@@ -40,9 +33,9 @@ const Header: React.FC = () => {
                 </Nav>
                 <Nav>
                     {!currentAccount &&
-                    <Nav.Link onClick={() => connectWallet()}>
+                    <Button className="btn-rounded connect-button" variant="flat" onClick={() => connectWallet()}>
                         Connect to wallet
-                    </Nav.Link>
+                    </Button>
                     }
                     {currentAccount &&
                     <Navbar.Text>

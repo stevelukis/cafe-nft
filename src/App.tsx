@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Components
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Header from "./components/Header";
 
 function App() {
