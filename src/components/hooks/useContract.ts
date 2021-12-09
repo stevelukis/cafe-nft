@@ -7,7 +7,6 @@ export const useContract = (address?: string) => {
     useEffect(() => {
         const fetchTokenList = async (address: string) => {
             const fetchedTokenList = await getToken(address);
-            console.log(fetchedTokenList);
             setTokenList(fetchedTokenList);
         }
         if (address) {
