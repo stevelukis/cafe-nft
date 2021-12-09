@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Components
-import Home from "./components/Home/Home";
+import Home from "./components/Home";
 import Header from "./components/Header";
 import Collection from "./components/Collection";
 import { useWallet } from "./components/hooks/useWallet";

@@ -45,13 +45,15 @@ const Home: React.FC<Props> = ({ currentAccount }) => {
             {style}
             <Container className="mt-5">
                 <Row className="align-items-center">
-                    <Col lg={6}>
-                        <Image
-                            src={Logo}
-                            width={512}
-                        />
+                    <Col lg={6} md={12}>
+                        <Row>
+                            <Image
+                                src={Logo}
+                                width={0.8}
+                            />
+                        </Row>
                     </Col>
-                    <Col lg={6}>
+                    <Col lg={6} md={12}>
                         <Row>
                             <Col className="d-flex justify-content-md-center">
                                 {tokenLeft &&
