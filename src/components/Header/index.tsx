@@ -29,7 +29,11 @@ const Header: React.FC<Props> = ({ currentAccount, setCurrentAccount }) => {
         <Navbar bg="#ff1">
             {style}
             <Container>
-                <Navbar.Brand>Cafe NFT</Navbar.Brand>
+                <Navbar.Brand>
+                    <Link to="/">
+                        Cafe NFT
+                    </Link>
+                </Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link>
                         <Link to="/my-token">
