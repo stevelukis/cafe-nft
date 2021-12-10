@@ -40,6 +40,11 @@ const Header: React.FC<Props> = ({ currentAccount, setCurrentAccount }) => {
                             Your Token
                         </Link>
                     </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/#faq">
+                            FAQ
+                        </Link>
+                    </Nav.Link>
                 </Nav>
                 <Nav>
                     {!currentAccount &&

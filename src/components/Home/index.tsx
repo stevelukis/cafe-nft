@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Col, Container, Image, Row } from "react-bootstrap";
+import { Accordion, Alert, Button, Col, Container, Image, Row } from "react-bootstrap";
 import { buyNFT, getMaxSupply, getTotalSupply } from "../../network/ethereum";
 import { style } from "./Home.styles";
 
@@ -97,6 +97,42 @@ const Home: React.FC<Props> = ({ currentAccount }) => {
                             }
                         </Row>
                     </Col>
+                </Row>
+                <Row className="mt-5">
+                    <h1 id="faq">Frequently Asked Questions (FAQ)</h1>
+                    <Accordion>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>What is Cafe NFT?</Accordion.Header>
+                            <Accordion.Body>
+                                We are a revolution to food and beverage businesses. We release NFTs that are backed up
+                                by a big business and have real life benefits.
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="1">
+                            <Accordion.Header>How much is the cost of a token?</Accordion.Header>
+                            <Accordion.Body>
+                                A token will cost you 0.05 eth.
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header>How do I buy Cafe NFTs?</Accordion.Header>
+                            <Accordion.Body>
+                                Install Metamask plugin to your browser first. Then open this website click the connect
+                                wallet button. After your address appear on the navigation bar, you can now click the
+                                buy button. Make sure you have enough ether to pay for the token and the gas fee.
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="3">
+                            <Accordion.Header>What is the benefits of owning a Cafe NFT?</Accordion.Header>
+                            <Accordion.Body>
+                                <ul>
+                                    <li>20% discounts in all of our franchises.</li>
+                                    <li>Special role in our discord server.</li>
+                                    <li>A long term investments.</li>
+                                </ul>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
                 </Row>
             </Container>
         </div>
