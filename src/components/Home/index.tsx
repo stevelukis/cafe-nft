@@ -100,7 +100,7 @@ const Home: React.FC<Props> = ({ currentAccount }) => {
                 </Row>
                 <Row className="mt-5">
                     <h1 id="faq">Frequently Asked Questions (FAQ)</h1>
-                    <Accordion>
+                    <Accordion flush>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>What is Cafe NFT?</Accordion.Header>
                             <Accordion.Body>
