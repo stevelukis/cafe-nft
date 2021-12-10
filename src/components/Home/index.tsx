@@ -1,41 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Accordion, Alert, Button, Col, Container, Image, Row } from "react-bootstrap";
-import { buyNFT, getMaxSupply, getTotalSupply } from "../../network/ethereum";
+import React from 'react';
+import { Accordion, Button, Col, Container, Image, Row } from "react-bootstrap";
 import { style } from "./Home.styles";
 
 // Images
 import Logo from '../../images/Logo.jpg';
 
-type Props = {
-    currentAccount?: string;
-}
-
-const Home: React.FC<Props> = ({ currentAccount }) => {
-    const [tokenLeft, setTokenLeft] = useState<number | null>(null);
-    const [error, setError] = useState(false);
-
-    useEffect(() => {
-        const fetchSupply = async () => {
-            const totalSupply = await getTotalSupply();
-            const maxSupply = await getMaxSupply();
-            setTokenLeft(maxSupply - totalSupply);
-        }
-        fetchSupply();
-    }, []);
-
-    const onBuyClick = async (e: React.MouseEvent<HTMLElement>) => {
-        setError(false);
-        if (!currentAccount) {
-            alert("You haven't connect your wallet yet!")
-        } else {
-            try {
-                await buyNFT();
-            } catch (err) {
-                setError(true);
-            }
-        }
-    }
-
+const Home: React.FC = () => {
     return (
         <div>
             {style}
@@ -69,12 +39,7 @@ const Home: React.FC<Props> = ({ currentAccount }) => {
                     <Col lg={6} md={12}>
                         <Row>
                             <Col className="d-flex justify-content-md-center">
-                                {tokenLeft && tokenLeft === 0 &&
-                                <h1>Sold out!</h1>
-                                }
-                                {tokenLeft && tokenLeft > 0 &&
-                                <h1>{tokenLeft} token{tokenLeft > 1 && 's'} left!</h1>
-                                }
+
                             </Col>
                         </Row>
                         <Row>
@@ -82,19 +47,10 @@ const Home: React.FC<Props> = ({ currentAccount }) => {
                                  lg={12}>
                                 <Button
                                     className="buy-button"
-                                    variant="flat"
-                                    onClick={onBuyClick}>
+                                    variant="flat">
                                     Buy now!
                                 </Button>
                             </Col>
-                            {error &&
-                            <Col className="mt-3 d-flex justify-content-md-center"
-                                 lg={12}>
-                                <Alert variant="danger">
-                                    Transaction failed!
-                                </Alert>
-                            </Col>
-                            }
                         </Row>
                     </Col>
                 </Row>

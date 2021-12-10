@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,23 +7,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Collection from "./components/Collection";
-import { useWallet } from "./hooks/useWallet";
 
 function App() {
-    const { currentAccount, setCurrentAccount } = useWallet();
     return (
         <Router>
-            <Header
-                currentAccount={currentAccount}
-                setCurrentAccount={setCurrentAccount}
-            />
+            <Header />
             <Routes>
-                <Route path='/' element={<Home currentAccount={currentAccount} />} />
+                <Route path='/' element={<Home />} />
                 <Route
                     path='/my-token'
-                    element={<Collection
-                        currentAccount={currentAccount}
-                    />}
+                    element={<Collection />}
                 />
             </Routes>
         </Router>
