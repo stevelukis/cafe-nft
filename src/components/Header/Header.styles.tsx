@@ -9,6 +9,10 @@ export const style =
                     text-decoration: none;
                 }
                 
+                a:hover {
+                    color: white;
+                }
+                
                 .navbar {
                     background-color: #ffde17;
                 }
