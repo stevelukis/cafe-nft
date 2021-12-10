@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# Cafe NFT dAPP ☕
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](.README_images/b8e2b453.png)
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Clone and install the dependencies:
+```
+git clone git@github.com:stevelukis/cafe-nft.git
+cd cafe-nft
+yarn add
+```
 
-### `yarn start`
+Create a `.env` file and fill it with something like this:
+```
+REACT_APP_API_URL=YOUR_API_URL
+REACT_APP_CONTRACT_ADDRESS=YOUR_CONTRACT_ADDRESS
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run it:
+```
+yarn start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Description
 
-### `yarn test`
+This repo shows an example of a website which is integrated to an ERC721 NFT contracts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The libraries used in the front end are:
 
-### `yarn build`
+- React.js
+- React Router
+- React Bootstrap
+- Web3.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Connect to wallet
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](.README_images/7e3d2e92.png)
 
-### `yarn eject`
+This will trigger a connection between the website and the Metamask plugin. Once done, Metamask will say that it is
+connected to the website.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![](.README_images/a5f608ab.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Number of tokens left
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![](.README_images/607a4633.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This shows how many tokens are available to buy. What basically this does is get the number of maximum supply and
+subtract it with the total supply.
 
-## Learn More
+### Buy NFT
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![](.README_images/dcab6895.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This button will create a transaction to the smart contract and sending 0.05 ether.
+
+![](.README_images/0b6eb169.png)
+
+### Owned NFT
+
+![](.README_images/a2524fce.png)
+
+This page shows the user the NFT they already owned. The images are not saved in the web server. They are fetched from
+the IPFS the images reside.
+
+## Follow me
+
+[👩‍💻 Github](https://github.com/stevelukis)
+
+[Ⓜ Medium](https://medium.com/@stevelukis)
+
+[💪 Upwork](https://www.upwork.com/freelancers/~0199de1d4d4622e8ae)
+
+[🧧 Fiverr](https://www.fiverr.com/stevelukis)
