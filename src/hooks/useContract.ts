@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getToken, getTokenUri } from "../../network/ethereum";
+import { getToken, getTokenUri } from "../network/ethereum";
 
 type tokenMetadata = {
     name: string,

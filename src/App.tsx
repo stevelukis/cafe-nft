@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Collection from "./components/Collection";
-import { useWallet } from "./components/hooks/useWallet";
+import { useWallet } from "./hooks/useWallet";
 
 function App() {
     const { currentAccount, setCurrentAccount } = useWallet();

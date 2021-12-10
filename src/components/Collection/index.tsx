@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContract } from "../hooks/useContract";
+import { useContract } from "../../hooks/useContract";
 import { Container, Row, Col, Alert, Spinner, Image } from "react-bootstrap";
 
 type Props = {
